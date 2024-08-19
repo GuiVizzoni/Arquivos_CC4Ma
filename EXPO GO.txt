@@ -1,0 +1,187 @@
+import React from 'react'; // Importa o React
+import { TextInput, SafeAreaView, StyleSheet, View, Button, Text, Image, Alert } from 'react-native';
+import { Card } from 'react-native-paper'; // Certifique-se de que você realmente usa Card ou remova se não precisar
+
+// Define o componente TextInputExample
+const TextInputExample = () => {
+  const [text, onChangeText] = React.useState('Nome de Usuário');
+  const [number, onChangeNumber] = React.useState('');
+  
+  return (
+    <SafeAreaView style={styles.container}>
+      
+      <Image style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+
+
+      <View style={styles.inputContainer}>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="Senha"
+        secureTextEntry={true} // Correção: use secureTextEntry para senhas
+      />
+    </View>
+
+    <View style ={styles.botao}>
+    <Button
+        title="Login"
+        onPress={() => Alert.alert('Login Inválido!')}
+      />
+    </View>
+
+    <View>
+
+
+    </View>
+
+    </SafeAreaView>
+  );
+};
+
+// Define o componente App
+export default function App() {
+  return <TextInputExample />;
+}
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    textAlign: 'center',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'center', // Centraliza verticalmente
+    alignItems: 'center', // Centraliza horizontalmente
+    backgroundColor: '#f5f5f5', // Opcional: cor de fundo para visualização
+  },
+  inputContainer: {
+    width: '80%', // Opcional: ajuste conforme necessário
+  },
+  botao: {
+    width: 100,
+    height: 200,
+    padding: 10,
+  },
+
+  rodape: {
+    marginTop: '100%',
+  },
+
+  stretch: {
+    width: 200,
+    height: 200,
+    borderRadius: 400,
+  },
+
+});
+
+/*
+
+import React from 'react';
+import { TextInput, SafeAreaView, StyleSheet, View, Button, Text, Image, Alert } from 'react-native';
+
+const TextInputExample = () => {
+  const [text, onChangeText] = React.useState('Nome de Usuário');
+  const [number, onChangeNumber] = React.useState('');
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image 
+        style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')} 
+      />
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeText}
+          value={text}
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Senha"
+          secureTextEntry={true}
+        />
+      </View>
+
+      <View style={styles.botao}>
+        <Button
+          title="Login"
+          onPress={() => Alert.alert('Login Inválido!')}
+        />
+      </View>
+
+      <View style={styles.textsContainer}>
+        <Text style={styles.leftText}>Texto à esquerda</Text>
+        <Text style={styles.rightText}>Texto à direita</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default function App() {
+  return <TextInputExample />;
+}
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    textAlign: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  inputContainer: {
+    width: '80%',
+  },
+  botao: {
+    marginVertical: 20,
+  },
+  textsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '80%',
+    paddingHorizontal: 20,
+  },
+  leftText: {
+    textAlign: 'left',
+  },
+  rightText: {
+    textAlign: 'right',
+  },
+  stretch: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    marginBottom: 20,
+  },
+});
+
+
+*/
